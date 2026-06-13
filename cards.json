@@ -5,11 +5,7 @@
     "back": "数据库迁移就是一张\"改造说明书\"，照着它，数据库的结构就改成新代码需要的样子。",
     "branch": "db",
     "topic": "database",
-    "tags": [
-      "sql",
-      "database",
-      "deploy"
-    ],
+    "tags": ["sql", "database", "deploy"],
     "box": 1,
     "due_date": "2026-05-31"
   },
@@ -19,10 +15,7 @@
     "back": "SQL 是一种\"跟数据库说话\"的语言，用它来存、取、改、删数据。",
     "branch": "db",
     "topic": "database",
-    "tags": [
-      "sql",
-      "database"
-    ],
+    "tags": ["sql", "database"],
     "box": 1,
     "due_date": "2026-05-31"
   },
@@ -32,12 +25,7 @@
     "back": "一个支付服务给你**两把钥匙**：一把可以公开贴在网页上，另一把是机密的、能动你的钱——千万别泄露。",
     "branch": "api",
     "topic": "backend",
-    "tags": [
-      "stripe",
-      "api-keys",
-      "security",
-      "env"
-    ],
+    "tags": ["stripe", "api-keys", "security", "env"],
     "box": 1,
     "due_date": "2026-05-31"
   },
@@ -47,12 +35,7 @@
     "back": "Stripe 只帮你**收钱**，税要你自己管；Merchant of Record 当\"名义卖家\"，**连税一起替你管**——代价是抽成更高。",
     "branch": "api",
     "topic": "backend",
-    "tags": [
-      "stripe",
-      "payments",
-      "tax",
-      "indie"
-    ],
+    "tags": ["stripe", "payments", "tax", "indie"],
     "box": 1,
     "due_date": "2026-05-31"
   },
@@ -62,12 +45,7 @@
     "back": "API Gateway 是后端的「前台/大门」:接住外面来的请求,再转交给 Lambda 干活。",
     "branch": "eng",
     "topic": "devops",
-    "tags": [
-      "aws",
-      "api",
-      "http",
-      "backend"
-    ],
+    "tags": ["aws", "api", "http", "backend"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -77,12 +55,7 @@
     "back": "Lambda 是云上帮你跑后端代码的地方,你不用管服务器,它自动运行。",
     "branch": "eng",
     "topic": "devops",
-    "tags": [
-      "aws",
-      "serverless",
-      "env-vars",
-      "backend"
-    ],
+    "tags": ["aws", "serverless", "env-vars", "backend"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -92,11 +65,7 @@
     "back": "括号像穿衣服：最后穿上的最先脱掉（最后开的最先关）。",
     "branch": "eng",
     "topic": "other",
-    "tags": [
-      "syntax",
-      "brackets",
-      "editor"
-    ],
+    "tags": ["syntax", "brackets", "editor"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -106,11 +75,7 @@
     "back": "变量/props/函数用驼峰命名：第一个词小写，后面每个词首字母大写。",
     "branch": "eng",
     "topic": "other",
-    "tags": [
-      "naming",
-      "convention",
-      "javascript"
-    ],
+    "tags": ["naming", "convention", "javascript"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -120,11 +85,7 @@
     "back": "JSX 里\"看情况显示\"有 3 招：`&&`(有就显示)、`? :`(二选一)、`return null`(啥都不画)。",
     "branch": "fe",
     "topic": "frontend",
-    "tags": [
-      "react",
-      "jsx",
-      "conditional"
-    ],
+    "tags": ["react", "jsx", "conditional"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -134,12 +95,7 @@
     "back": "EC2 是一台云端租来的电脑,24 小时开着、开着就收钱;Lambda 是按铃才来的临时工,干一次活付一次钱。",
     "branch": "eng",
     "topic": "devops",
-    "tags": [
-      "aws",
-      "ec2",
-      "lambda",
-      "compute"
-    ],
+    "tags": ["aws", "ec2", "lambda", "compute"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -149,12 +105,7 @@
     "back": "lint = 自动挑代码毛病的工具（概念）；ESLint = 专给 JavaScript/TypeScript 用的那个 lint。",
     "branch": "eng",
     "topic": "devops",
-    "tags": [
-      "eslint",
-      "lint",
-      "tooling",
-      "javascript"
-    ],
+    "tags": ["eslint", "lint", "tooling", "javascript"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -164,12 +115,7 @@
     "back": "`(query: string) => void` = 一个函数：收一个字符串，做完事但不返回任何东西。",
     "branch": "fe",
     "topic": "typescript",
-    "tags": [
-      "typescript",
-      "function",
-      "void",
-      "callback"
-    ],
+    "tags": ["typescript", "function", "void", "callback"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -179,11 +125,7 @@
     "back": "两个都用来描述\"数据长什么样\"；描述对象时几乎一样，要写\"二选一\"时用 type。",
     "branch": "fe",
     "topic": "typescript",
-    "tags": [
-      "typescript",
-      "interface",
-      "type"
-    ],
+    "tags": ["typescript", "interface", "type"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -193,11 +135,7 @@
     "back": "JSX 里分辨\"死文字\"还是\"活代码\"，只看一件事：引号还是大括号。",
     "branch": "fe",
     "topic": "frontend",
-    "tags": [
-      "jsx",
-      "react",
-      "syntax"
-    ],
+    "tags": ["jsx", "react", "syntax"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -207,12 +145,7 @@
     "back": "JS/TS = 语言 · React = 库 · Next.js = 框架 · 前端/后端 = 代码在哪跑。四个不同类别。",
     "branch": "fe",
     "topic": "frontend",
-    "tags": [
-      "typescript",
-      "react",
-      "nextjs",
-      "concepts"
-    ],
+    "tags": ["typescript", "react", "nextjs", "concepts"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -222,12 +155,7 @@
     "back": "`.map()` 把一篮东西，每个都加工一下，吐出一篮**新**东西，数量不变、一一对应。",
     "branch": "fe",
     "topic": "frontend",
-    "tags": [
-      "javascript",
-      "react",
-      "array",
-      "jsx"
-    ],
+    "tags": ["javascript", "react", "array", "jsx"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -237,11 +165,7 @@
     "back": "React 是发动机（只管界面）；Next.js 是整辆车（在 React 之上补齐路由/服务器/打包/部署）。",
     "branch": "fe",
     "topic": "frontend",
-    "tags": [
-      "react",
-      "nextjs",
-      "framework"
-    ],
+    "tags": ["react", "nextjs", "framework"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -251,12 +175,7 @@
     "back": "两个都装依赖库；npm 每个项目各存一份，pnpm 用共享仓库 → 更快更省硬盘。",
     "branch": "eng",
     "topic": "tools",
-    "tags": [
-      "npm",
-      "pnpm",
-      "package-manager",
-      "node"
-    ],
+    "tags": ["npm", "pnpm", "package-manager", "node"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -266,12 +185,7 @@
     "back": "`__pycache__` 是 Python 自动生成的缓存文件夹,装着「翻译好的代码」,删了能重生,永远不该进 git。",
     "branch": "api",
     "topic": "backend",
-    "tags": [
-      "python",
-      "cache",
-      "git",
-      "gitignore"
-    ],
+    "tags": ["python", "cache", "git", "gitignore"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -281,12 +195,7 @@
     "back": "渲染列表时，每项要有唯一稳定的 key，React 靠它认出\"谁是谁\"。",
     "branch": "fe",
     "topic": "frontend",
-    "tags": [
-      "react",
-      "list",
-      "key",
-      "map"
-    ],
+    "tags": ["react", "list", "key", "map"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -296,13 +205,7 @@
     "back": "日志是程序的\"流水账\"；出问题就打开它，找最新几行 + 找关键词（error / started-but-no-done）。",
     "branch": "eng",
     "topic": "debugging",
-    "tags": [
-      "debugging",
-      "logs",
-      "grep",
-      "tail",
-      "terminal"
-    ],
+    "tags": ["debugging", "logs", "grep", "tail", "terminal"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -312,11 +215,7 @@
     "back": "正则表达式 = 一张\"长相描述\"（不是具体文字），符合描述的就被抓出来。",
     "branch": "eng",
     "topic": "other",
-    "tags": [
-      "regex",
-      "pattern",
-      "string"
-    ],
+    "tags": ["regex", "pattern", "string"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -326,12 +225,7 @@
     "back": "先写一个\"会失败的测试\"当靶心,再写代码去命中它;这个测试之后永远守在那里,防止 bug 偷偷溜回来。",
     "branch": "eng",
     "topic": "tools",
-    "tags": [
-      "testing",
-      "tdd",
-      "regression",
-      "quality"
-    ],
+    "tags": ["testing", "tdd", "regression", "quality"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -341,12 +235,7 @@
     "back": "git pull 只更新源代码；install 补缺的库，build 把新源代码重新编译成能跑的版本。",
     "branch": "eng",
     "topic": "tools",
-    "tags": [
-      "git",
-      "build",
-      "dependencies",
-      "workflow"
-    ],
+    "tags": ["git", "build", "dependencies", "workflow"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -356,12 +245,7 @@
     "back": "XML = 用 `<标签>内容</标签>` 把东西包起来、标注\"这是什么\"的写法。",
     "branch": "fe",
     "topic": "frontend",
-    "tags": [
-      "xml",
-      "html",
-      "jsx",
-      "markup"
-    ],
+    "tags": ["xml", "html", "jsx", "markup"],
     "box": 1,
     "due_date": "2026-06-01"
   },
@@ -371,12 +255,7 @@
     "back": "Prettier 自动把代码格式熨平整（空格/引号/缩进统一），保存即生效。",
     "branch": "eng",
     "topic": "tools",
-    "tags": [
-      "prettier",
-      "formatter",
-      "eslint",
-      "editor"
-    ],
+    "tags": ["prettier", "formatter", "eslint", "editor"],
     "box": 1,
     "due_date": "2026-06-03"
   },
@@ -386,12 +265,7 @@
     "back": "`rc` = run commands（运行配置）；`.xxxrc` 就是 \"xxx 的配置文件\"。",
     "branch": "eng",
     "topic": "tools",
-    "tags": [
-      "config",
-      "unix",
-      "dotfiles",
-      "conventions"
-    ],
+    "tags": ["config", "unix", "dotfiles", "conventions"],
     "box": 1,
     "due_date": "2026-06-03"
   },
@@ -401,13 +275,7 @@
     "back": "不知道项目怎么启动?看 `package.json` 的 `scripts`(找 dev)+ 看 lockfile 定包管理器。",
     "branch": "eng",
     "topic": "tools",
-    "tags": [
-      "npm",
-      "pnpm",
-      "package-json",
-      "scripts",
-      "workflow"
-    ],
+    "tags": ["npm", "pnpm", "package-json", "scripts", "workflow"],
     "box": 1,
     "due_date": "2026-06-04"
   },
@@ -417,12 +285,7 @@
     "back": "MCP = 给 agent 接某服务的\"工具插头\";Plugin = 更大的\"工具箱套装\"(里面可能含 MCP + 技能 + 命令 + 钩子)。",
     "branch": "eng",
     "topic": "tools",
-    "tags": [
-      "claude-code",
-      "mcp",
-      "plugin",
-      "agent"
-    ],
+    "tags": ["claude-code", "mcp", "plugin", "agent"],
     "box": 1,
     "due_date": "2026-06-04"
   },
@@ -432,12 +295,7 @@
     "back": "min-h-screen = 至少一整屏高;flex = 让子元素排队;flex-col = 竖着排。",
     "branch": "fe",
     "topic": "frontend",
-    "tags": [
-      "tailwind",
-      "css",
-      "flexbox",
-      "layout"
-    ],
+    "tags": ["tailwind", "css", "flexbox", "layout"],
     "box": 1,
     "due_date": "2026-06-04"
   }
