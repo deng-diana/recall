@@ -1,0 +1,12 @@
+.env
+# Python 的缓存垃圾
+  __pycache__/
+  *.pyc
+  .venv/
+  venv/
+
+# 本地数据库文件
+  *.db
+
+# Mac 的系统垃圾
+  .DS_Store
