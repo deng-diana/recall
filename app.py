@@ -14,7 +14,7 @@ client=anthropic.Anthropic()
 app = FastAPI()
 app.add_middleware(
       CORSMiddleware,
-      allow_origins=["http://localhost:3000"],  # 允许前端这个地址来访问
+      allow_origins=["http://localhost:3000", "https://recall-web-sigma.vercel.app"],  # 允许前端这个地址来访问
       allow_methods=["*"],                       # 允许所有方法(GET/POST...)
       allow_headers=["*"],
   )
