@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import sqlite3
+from ex06_leitner import schedule 
  
 
 
@@ -52,6 +53,19 @@ def create_card(card: CardIn):
    conn.close()
    new_id=cur.lastrowid
    return f"item added, the id is {new_id}"
+
+
+@app.post("/cards/{card_id}/review")
+def review_card(card_id: int, correct: bool):
+    conn=get_conn()
+    row=conn.execute("SELECT * FROM cards WHERE id=?", (card_id,)).fetchone()
+    if row is None:
+        raise HTTPException(status_code=404, detail="not found")
+    new_box,due=schedule(row["box"], correct)
+    conn.execute("UPDATE cards SET box=?, due_date=? WHERE id=?",(new_box,due,card_id))
+    conn.commit()
+    conn.close()
+    return {"id": card_id, "box": new_box, "due_date":due}
 
 
 @app.delete("/cards/{card_id}")
