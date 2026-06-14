@@ -1,13 +1,23 @@
+from multiprocessing import allow_connection_pickling
+from dotenv import load_dotenv
+import anthropic
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware 
 from pydantic import BaseModel
 import sqlite3
 from ex06_leitner import schedule 
  
-
+load_dotenv()
+client=anthropic.Anthropic()
 
 
 app = FastAPI()
-
+app.add_middleware(
+      CORSMiddleware,
+      allow_origins=["http://localhost:3000"],  # 允许前端这个地址来访问
+      allow_methods=["*"],                       # 允许所有方法(GET/POST...)
+      allow_headers=["*"],
+  )
 def get_conn():
     #小助手:每次要用数据库就叫它开个连接
     conn=sqlite3.connect("recall.db")
@@ -20,6 +30,10 @@ class CardIn(BaseModel):
     back:str
     branch: str
 
+class Quiz(BaseModel):
+    question:str
+    answer:str
+    difficulty: int
 
 @app.get("/health")
 def health():
@@ -54,6 +68,21 @@ def create_card(card: CardIn):
    new_id=cur.lastrowid
    return f"item added, the id is {new_id}"
 
+@app.post("/ai/generate-cards", status_code=201)
+def generate_card(topic:str):
+    resp=client.messages.parse(
+        model="claude-haiku-4-5",
+        max_tokens=1024,
+        messages=[{"role":"user", "content": f"为{topic}这个知识点出一道复习题."}],
+        output_format=Quiz
+    )
+    quiz=resp.parsed_output
+    conn=get_conn()
+    cur=conn.execute("INSERT INTO cards (front, back, branch) VALUES(?,?,?)",(quiz.question, quiz.answer, "ai"))
+    conn.commit()   
+    conn.close()
+    new_id=cur.lastrowid
+    return {"id":new_id, "front":quiz.question, "back":quiz.answer, "branch":"ai" }
 
 @app.post("/cards/{card_id}/review")
 def review_card(card_id: int, correct: bool):
