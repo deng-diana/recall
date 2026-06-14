@@ -15,3 +15,7 @@ for row in conn.execute(
     "SELECT id, front From cards WHERE branch=?", 
     (branch,)).fetchall():
         print(row)
+
+branch="py"
+for row in conn.execute("SELECT id, front FROM cards WHERE branch=?", (branch,)).fetchall():
+    print(row)
