@@ -1,5 +1,6 @@
 # seed_db.py — 把 cards.json 的 30 张卡灌进数据库(干净重建)。读懂 + 跑。
-import sqlite3, json
+import sqlite3
+import json
 
 conn = sqlite3.connect("recall.db")
 

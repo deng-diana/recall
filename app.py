@@ -1,4 +1,3 @@
-from multiprocessing import allow_connection_pickling
 from dotenv import load_dotenv
 import anthropic
 from fastapi import FastAPI, HTTPException
@@ -6,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import sqlite3
 from ex06_leitner import schedule 
+from datetime import date
  
 load_dotenv()
 client=anthropic.Anthropic()
@@ -56,7 +56,15 @@ def get_cards(card_id: int):
     if row is None:
         raise HTTPException(status_code=404, detail="找不到这张卡")
     return dict(row)
-    
+
+@app.get("/cards/{card_id}/reviews")
+def card_reviews(card_id:int):
+    conn=get_conn()
+    rows=conn.execute(
+        "SELECT * FROM reviews WHERE card_id=?", (card_id,)).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
    
     
 @app.post("/cards", status_code=201)
@@ -91,8 +99,12 @@ def review_card(card_id: int, correct: bool):
     if row is None:
         raise HTTPException(status_code=404, detail="not found")
     new_box,due=schedule(row["box"], correct)
-    conn.execute("UPDATE cards SET box=?, due_date=? WHERE id=?",(new_box,due,card_id))
-    conn.commit()
+    with conn:
+        conn.execute("UPDATE cards SET box=?, due_date=? WHERE id=?",(new_box,due,card_id))
+        conn.execute(
+            "INSERT INTO reviews (card_id, correct, review_at) VALUES(?,?,?)",
+            (card_id, int(correct), date.today().isoformat()),
+        )
     conn.close()
     return {"id": card_id, "box": new_box, "due_date":due}
 
@@ -109,4 +121,16 @@ def delete_card(card_id:int):
     
     return "deleted succefuly"
 
+
+@app.get("/stats")
+def stats():
+    conn=get_conn()
+    rows=conn.execute("""
+        SELECT cards.id, cards.front, COUNT(reviews.id) AS review_count
+        FROM cards
+        LEFT JOIN reviews ON reviews.card_id=cards.id
+        GROUP BY cards.id
+    """).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
     
